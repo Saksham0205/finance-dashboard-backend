@@ -34,7 +34,7 @@ npm run start:dev
 ## API Docs
 
 - Swagger UI: `http://localhost:3000/api/docs` (after starting the server)
-- Curl commands for every endpoint: [API_TESTING.md](./API_TESTING.md)
+- Curl commands for every endpoint: [API_REFERENCE.md](./API_REFERENCE.md)
 
 ## Endpoints
 
