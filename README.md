@@ -39,7 +39,7 @@ npm run start:dev
 ## Endpoints
 
 ### Auth
-- `POST /auth/register` — Register a new user
+- `POST /auth/register` �� Register a new user (optional `role` field: viewer, analyst, admin)
 - `POST /auth/login` — Login, returns JWT token
 
 ### Transactions (requires auth)

@@ -13,7 +13,7 @@ npm run start:dev
 
 ## Auth
 
-### Register a new user
+### Register a new user (default role: viewer)
 
 ```bash
 curl -s -X POST http://localhost:3000/auth/register \
@@ -32,6 +32,50 @@ curl -s -X POST http://localhost:3000/auth/register \
   "name": "John Doe",
   "email": "john@example.com",
   "role": "viewer"
+}
+```
+
+### Register with a specific role
+
+```bash
+curl -s -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "admin123",
+    "role": "admin"
+  }'
+```
+
+**Response (201):**
+```json
+{
+  "id": "660a1f2e3b4c5d6e7f8a9b0c",
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "role": "admin"
+}
+```
+
+### Register — invalid role
+
+```bash
+curl -s -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Bad User",
+    "email": "bad@example.com",
+    "password": "bad123456",
+    "role": "superadmin"
+  }'
+```
+
+**Response (400):**
+```json
+{
+  "error": "Bad Request",
+  "detail": "role must be one of the following values: viewer, analyst, admin"
 }
 ```
 
@@ -555,24 +599,18 @@ curl -s http://localhost:3000/dashboard/trends \
 Run this to set up test users and get tokens in one go:
 
 ```bash
-# Register three users
+# Register three users with roles
 curl -s -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"name":"Admin User","email":"admin@test.com","password":"admin123"}'
+  -d '{"name":"Admin User","email":"admin@test.com","password":"admin123","role":"admin"}'
 
 curl -s -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"name":"Analyst User","email":"analyst@test.com","password":"analyst123"}'
+  -d '{"name":"Analyst User","email":"analyst@test.com","password":"analyst123","role":"analyst"}'
 
 curl -s -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name":"Viewer User","email":"viewer@test.com","password":"viewer123"}'
-
-# Promote roles via mongosh (all users start as viewer)
-mongosh financial_dashboard --eval '
-  db.users.updateOne({email:"admin@test.com"}, {$set:{role:"admin"}});
-  db.users.updateOne({email:"analyst@test.com"}, {$set:{role:"analyst"}});
-'
 
 # Login and save tokens
 ADMIN_TOKEN=$(curl -s -X POST http://localhost:3000/auth/login \

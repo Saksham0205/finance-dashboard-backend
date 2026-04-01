@@ -28,6 +28,7 @@ export class AuthService {
       name: dto.name,
       email: dto.email,
       hashedPassword,
+      ...(dto.role && { role: dto.role }),
     });
 
     return {
