@@ -58,3 +58,42 @@ npm run start:dev
 - `GET /dashboard/recent` — Last 10 transactions (all roles)
 - `GET /dashboard/by-category` — Totals by category (analyst+)
 - `GET /dashboard/trends` — Monthly breakdown (analyst+)
+
+## Tech Stack
+
+- **NestJS** — framework
+- **MongoDB** — database
+- **Mongoose** — ODM
+- **JWT + Passport** — authentication
+- **class-validator** — input validation
+- **@nestjs/swagger** — API documentation
+
+## Testing with Postman
+
+A Postman collection is included in the repository as `postman_collection.json`.
+
+To use it:
+1. Open Postman
+2. Click **Import**
+3. Select `postman_collection.json` from the project root
+4. Set the `base_url` variable to `http://localhost:3000`
+5. Register an admin user first, copy the JWT token, and set it as Bearer token in the collection authorization
+
+## Getting Started
+
+Step-by-step flow for evaluators:
+
+1. **Register an admin user** — `POST /auth/register` with `role: "admin"`
+2. **Login** — `POST /auth/login` to get the JWT token
+3. **Set the token** — Use the token as Bearer token in the Authorization header for all subsequent requests
+4. **Create transactions** — `POST /transactions` to add some data
+5. **Test dashboard endpoints** — Query the dashboard routes to see aggregated data
+6. **Test role restrictions** — Create viewer/analyst users and verify they cannot access admin-only endpoints
+
+## Assumptions
+
+- Role can be passed during registration for simplicity and ease of testing
+- In a production system, role assignment would be restricted to admins only
+- The first admin must be created via `/auth/register` with `role: "admin"`
+- Transactions are global (not scoped per user) so all roles see all records
+- Soft delete is not implemented; `DELETE` permanently removes the record

@@ -1,0 +1,603 @@
+{
+  "info": {
+    "_postman_id": "e8f21ead-4009-41a0-820d-556a368b16d8",
+    "name": "finance-dashboard-backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47957192"
+  },
+  "item": [
+    {
+      "name": "Users (admin only)",
+      "item": [
+        {
+          "name": "List all users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change user role",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\": \"admin\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/users/69cd78b0f3a5e3fe98c2aa67/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users",
+                "69cd78b0f3a5e3fe98c2aa67",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate a user",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"isActive\": false\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/users/69cd78b0f3a5e3fe98c2aa67/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users",
+                "69cd78b0f3a5e3fe98c2aa67",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "List transactions — combine filters",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions?type=income&startDate=2026-01-01&endDate=2026-12-31&category=Salary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "income"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-12-31"
+                },
+                {
+                  "key": "category",
+                  "value": "Salary"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a transaction (admin only)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 35000,\n    \"notes\": \"March salary (updated)\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/transactions/69cd7906f3a5e3fe98c2aa6c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions",
+                "69cd7906f3a5e3fe98c2aa6c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a transaction (admin only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions/<TRANSACTION_ID>",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions",
+                "<TRANSACTION_ID>"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List all transactions (all roles)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MDczNDU5LCJleHAiOjE3NzUwNzcwNTl9.3SN6mtSctYrbX1x8ktMFf59Cxt81WKLcS5KJGcnl168"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List transactions — filter by type",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions?type=income",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "income"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List transactions — filter by category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions?category=Salary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Salary"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List transactions — filter by date range",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/transactions?startDate=2026-01-01&endDate=2026-04-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-04-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create transactions",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MDczNDU5LCJleHAiOjE3NzUwNzcwNTl9.3SN6mtSctYrbX1x8ktMFf59Cxt81WKLcS5KJGcnl168"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 30000,\n    \"type\": \"income\",\n    \"category\": \"Salary\",\n    \"date\": \"2026-04-02\",\n    \"notes\": \"March salary\",\n    \"userId\": \"69cd78b0f3a5e3fe98c2aa67\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/transactions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Summary — total income, expenses, net balance (all roles)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "By category — grouped totals (analyst + admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/dashboard/by-category",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "dashboard",
+                "by-category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Recent — last 10 transactions (all roles)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/dashboard/recent",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "dashboard",
+                "recent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Trends — monthly breakdown (analyst + admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/dashboard/trends",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "dashboard",
+                "trends"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Saksham\",\n    \"email\": \"saksham252003@gmail.com\",\n    \"password\": \"123456\",\n    \"role\":\"admin\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"saksham252003@gmail.com\",\n    \"password\": \"123456\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
