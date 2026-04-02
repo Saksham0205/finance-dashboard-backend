@@ -49,7 +49,7 @@ npm run start:dev
 - `DELETE /transactions/:id` — Delete (admin)
 
 ### Users (admin only)
-- `GET /users` — List all users
+- `GET /users` — List all users (supports optional `name` and `email` query params for search)
 - `PATCH /users/:id/role` — Change role
 - `PATCH /users/:id/status` — Activate/deactivate
 

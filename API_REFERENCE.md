@@ -363,6 +363,29 @@ curl -s http://localhost:3000/users \
 ]
 ```
 
+### Search users by name
+
+```bash
+curl -s "http://localhost:3000/users?name=john" \
+  -H "Authorization: Bearer <ADMIN_TOKEN>"
+```
+
+### Search users by email
+
+```bash
+curl -s "http://localhost:3000/users?email=example.com" \
+  -H "Authorization: Bearer <ADMIN_TOKEN>"
+```
+
+### Search users by name or email
+
+```bash
+curl -s "http://localhost:3000/users?name=john&email=admin@example.com" \
+  -H "Authorization: Bearer <ADMIN_TOKEN>"
+```
+
+> Both `name` and `email` are optional query parameters. They support case-insensitive partial matching. When both are provided, users matching **either** condition are returned.
+
 ### List users (non-admin — forbidden)
 
 ```bash

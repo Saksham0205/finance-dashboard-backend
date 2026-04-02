@@ -8,9 +8,19 @@ import { Role } from '../common/enums/role.enum';
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
-  async findAll() {
+  async findAll(name?: string, email?: string) {
+    const conditions: any[] = [];
+    if (name) {
+      conditions.push({ name: { $regex: name, $options: 'i' } });
+    }
+    if (email) {
+      conditions.push({ email: { $regex: email, $options: 'i' } });
+    }
+
+    const filter = conditions.length > 0 ? { $or: conditions } : {};
+
     return this.userModel
-      .find()
+      .find(filter)
       .select('-hashedPassword')
       .sort({ createdAt: -1 })
       .exec();

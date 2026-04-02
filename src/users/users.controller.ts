@@ -1,8 +1,9 @@
-import { Controller, Get, Patch, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Patch, Param, Body, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
+import { SearchUserDto } from './dto/search-user.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../common/guards/roles.guard';
 import { Roles } from '../common/decorators/roles.decorator';
@@ -17,11 +18,11 @@ export class UsersController {
 
   @Get()
   @Roles(Role.Admin)
-  @ApiOperation({ summary: 'List all users (admin only)' })
+  @ApiOperation({ summary: 'List all users with optional search by name or email (admin only)' })
   @ApiResponse({ status: 200, description: 'List of users' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
-  async findAll() {
-    return this.usersService.findAll();
+  async findAll(@Query() dto: SearchUserDto) {
+    return this.usersService.findAll(dto.name, dto.email);
   }
 
   @Patch(':id/role')
