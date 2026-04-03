@@ -2,6 +2,13 @@
 
 NestJS + MongoDB backend with JWT authentication and role-based access control.
 
+🚀 **Live API Docs:** https://finance-dashboard-backend-sigv.onrender.com/api/docs
+
+## Live API
+
+- **Base URL:** https://finance-dashboard-backend-sigv.onrender.com
+- **Swagger Docs:** https://finance-dashboard-backend-sigv.onrender.com/api/docs
+
 ## Roles
 
 | Role    | Permissions                                                     |
@@ -76,7 +83,7 @@ To use it:
 1. Open Postman
 2. Click **Import**
 3. Select `postman_collection.json` from the project root
-4. Set the `base_url` variable to `http://localhost:3000`
+4. Set the `base_url` variable to `https://finance-dashboard-backend-sigv.onrender.com` (or `http://localhost:3000` for local development)
 5. Register an admin user first, copy the JWT token, and set it as Bearer token in the collection authorization
 
 ## Getting Started
@@ -89,6 +96,13 @@ Step-by-step flow for evaluators:
 4. **Create transactions** — `POST /transactions` to add some data
 5. **Test dashboard endpoints** — Query the dashboard routes to see aggregated data
 6. **Test role restrictions** — Create viewer/analyst users and verify they cannot access admin-only endpoints
+
+## Deployment
+
+- Hosted on **Render** (Web Service)
+- Database hosted on **MongoDB Atlas** (M0 free tier)
+- Environment variables are configured directly in the Render dashboard
+- No local MongoDB installation required to test the APIs — use the live URL above
 
 ## Assumptions
 
