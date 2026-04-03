@@ -1,13 +1,44 @@
 # Financial Dashboard Backend
 
-NestJS + MongoDB backend with JWT authentication and role-based access control.
+A REST API for managing financial transactions, built with NestJS and MongoDB. Supports JWT auth, role-based access control, and a dashboard with summaries and trends.
 
-🚀 **Live API Docs:** https://finance-dashboard-backend-sigv.onrender.com/api/docs
+Live API docs: https://finance-dashboard-backend-sigv.onrender.com/api/docs
 
 ## Live API
 
-- **Base URL:** https://finance-dashboard-backend-sigv.onrender.com
-- **Swagger Docs:** https://finance-dashboard-backend-sigv.onrender.com/api/docs
+- Base URL: https://finance-dashboard-backend-sigv.onrender.com
+- Swagger docs: https://finance-dashboard-backend-sigv.onrender.com/api/docs
+
+## Frontend
+
+I also built a Next.js + Tailwind frontend to interact with the API:
+
+https://financial-dashboard-frontend-nine.vercel.app/
+
+It covers login/registration with JWT, role-based UI (viewers, analysts, and admins each see different things), transaction CRUD for admins, a dashboard with summary cards and charts, and user management.
+
+> The focus of this project is the backend — the frontend is there to show how the API works end-to-end with role-based access, not as a standalone frontend submission. The backend API and Swagger docs are the primary submission: https://finance-dashboard-backend-sigv.onrender.com/api
+
+## Quick Test Flow
+
+### Option 1 — Via Frontend (easiest)
+1. Go to https://financial-dashboard-frontend-nine.vercel.app/
+2. Register a user with role `admin`
+3. Log in and explore the dashboard, transactions, and user management
+4. Register a `viewer` and `analyst` to see how role restrictions work
+
+### Option 2 — Via Swagger UI
+1. Go to https://finance-dashboard-backend-sigv.onrender.com/api
+2. `POST /auth/register` to create an admin user
+3. `POST /auth/login` to get a JWT token
+4. Click "Authorize" and paste the token
+5. Test all endpoints from there
+
+### Option 3 — Via Postman
+1. Import `postman_collection.json` from this repo
+2. Set `base_url` to `https://finance-dashboard-backend-sigv.onrender.com`
+3. Register + login to get a JWT token
+4. Set it as Bearer token in the collection auth
 
 ## Roles
 
@@ -40,74 +71,64 @@ npm run start:dev
 
 ## API Docs
 
-- Swagger UI: `http://localhost:3000/api/docs` (after starting the server)
-- Curl commands for every endpoint: [API_REFERENCE.md](./API_REFERENCE.md)
+- Swagger UI at `http://localhost:3000/api/docs` once the server is running
+- Curl examples for every endpoint in [API_REFERENCE.md](./API_REFERENCE.md)
 
 ## Endpoints
 
 ### Auth
-- `POST /auth/register` �� Register a new user (optional `role` field: viewer, analyst, admin)
-- `POST /auth/login` — Login, returns JWT token and user data
+- `POST /auth/register` — register a new user (pass `role`: viewer, analyst, or admin)
+- `POST /auth/login` — login, returns JWT token and user data
 
 ### Transactions (requires auth)
-- `POST /transactions` — Create (admin)
-- `GET /transactions` — List with filters (all roles)
-- `PUT /transactions/:id` — Update (admin)
-- `DELETE /transactions/:id` — Delete (admin)
+- `POST /transactions` — create (admin only)
+- `GET /transactions` — list with filters (all roles)
+- `PUT /transactions/:id` — update (admin only)
+- `DELETE /transactions/:id` — delete (admin only)
 
 ### Users (admin only)
-- `GET /users` — List all users (supports optional `name` and `email` query params for search)
-- `PATCH /users/:id/role` — Change role
-- `PATCH /users/:id/status` — Activate/deactivate
+- `GET /users` — list all users (optional `name` and `email` query params for filtering)
+- `PATCH /users/:id/role` — change a user's role
+- `PATCH /users/:id/status` — activate or deactivate a user
 
 ### Dashboard (requires auth)
-- `GET /dashboard/summary` — Income, expenses, net balance (all roles)
-- `GET /dashboard/recent` — Last 10 transactions (all roles)
-- `GET /dashboard/by-category` — Totals by category (analyst+)
-- `GET /dashboard/trends` — Monthly breakdown (analyst+)
+- `GET /dashboard/summary` — income, expenses, net balance (all roles)
+- `GET /dashboard/recent` — last 10 transactions (all roles)
+- `GET /dashboard/by-category` — totals by category (analyst+)
+- `GET /dashboard/trends` — monthly breakdown (analyst+)
 
 ## Tech Stack
 
-- **NestJS** — framework
-- **MongoDB** — database
-- **Mongoose** — ODM
-- **JWT + Passport** — authentication
-- **class-validator** — input validation
-- **@nestjs/swagger** — API documentation
+- NestJS
+- MongoDB + Mongoose
+- JWT + Passport for auth
+- class-validator for input validation
+- @nestjs/swagger for API docs
 
 ## Testing with Postman
 
-A Postman collection is included in the repository as `postman_collection.json`.
-
-To use it:
-1. Open Postman
-2. Click **Import**
-3. Select `postman_collection.json` from the project root
-4. Set the `base_url` variable to `https://finance-dashboard-backend-sigv.onrender.com` (or `http://localhost:3000` for local development)
-5. Register an admin user first, copy the JWT token, and set it as Bearer token in the collection authorization
+There's a `postman_collection.json` in the project root. Import it into Postman, set `base_url` to `https://finance-dashboard-backend-sigv.onrender.com` (or `http://localhost:3000` for local), register an admin, and use the JWT token as Bearer auth on the collection.
 
 ## Getting Started
 
-Step-by-step flow for evaluators:
+If you're evaluating this project, here's a quick walkthrough:
 
-1. **Register an admin user** — `POST /auth/register` with `role: "admin"`
-2. **Login** — `POST /auth/login` to get the JWT token and user details
-3. **Set the token** — Use the token as Bearer token in the Authorization header for all subsequent requests
-4. **Create transactions** — `POST /transactions` to add some data
-5. **Test dashboard endpoints** — Query the dashboard routes to see aggregated data
-6. **Test role restrictions** — Create viewer/analyst users and verify they cannot access admin-only endpoints
+1. Register an admin — `POST /auth/register` with `role: "admin"`
+2. Login — `POST /auth/login` to get a JWT token and user details
+3. Set the token as Bearer in the Authorization header
+4. Create some transactions via `POST /transactions`
+5. Hit the dashboard endpoints to see aggregated data
+6. Create viewer/analyst users and verify they can't access admin-only routes
 
 ## Deployment
 
-- Hosted on **Render** (Web Service)
-- Database hosted on **MongoDB Atlas** (M0 free tier)
-- Environment variables are configured directly in the Render dashboard
-- No local MongoDB installation required to test the APIs — use the live URL above
+The API is deployed on Render and the database is on MongoDB Atlas (free tier). Environment variables are set in the Render dashboard. You don't need a local MongoDB setup to test — just use the live URL above.
 
 ## Assumptions
 
-- Role can be passed during registration for simplicity and ease of testing
-- In a production system, role assignment would be restricted to admins only
-- The first admin must be created via `/auth/register` with `role: "admin"`
-- Transactions are global (not scoped per user) so all roles see all records
-- Soft delete is not implemented; `DELETE` permanently removes the record
+I made a few design decisions worth calling out:
+
+- Users can pick their own role during registration. This is intentional — it makes testing way easier. In production, you'd obviously restrict role assignment to admins.
+- The first admin has to be created through `/auth/register` with `role: "admin"` since there's no seed data.
+- Transactions are global, not scoped per user. Every role can see all transactions.
+- Deletes are hard deletes — no soft delete. `DELETE` removes the record permanently.
