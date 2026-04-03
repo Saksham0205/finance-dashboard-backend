@@ -133,7 +133,13 @@ curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
 **Response (200):**
 ```json
 {
-  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "660a1f2e3b4c5d6e7f8a9b0c",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "viewer"
+  }
 }
 ```
 

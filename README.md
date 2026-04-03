@@ -47,7 +47,7 @@ npm run start:dev
 
 ### Auth
 - `POST /auth/register` �� Register a new user (optional `role` field: viewer, analyst, admin)
-- `POST /auth/login` — Login, returns JWT token
+- `POST /auth/login` — Login, returns JWT token and user data
 
 ### Transactions (requires auth)
 - `POST /transactions` — Create (admin)
@@ -91,7 +91,7 @@ To use it:
 Step-by-step flow for evaluators:
 
 1. **Register an admin user** — `POST /auth/register` with `role: "admin"`
-2. **Login** — `POST /auth/login` to get the JWT token
+2. **Login** — `POST /auth/login` to get the JWT token and user details
 3. **Set the token** — Use the token as Bearer token in the Authorization header for all subsequent requests
 4. **Create transactions** — `POST /transactions` to add some data
 5. **Test dashboard endpoints** — Query the dashboard routes to see aggregated data
