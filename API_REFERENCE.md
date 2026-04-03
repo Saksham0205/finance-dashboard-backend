@@ -16,7 +16,7 @@ npm run start:dev
 ### Register a new user (default role: viewer)
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "John Doe",
@@ -38,7 +38,7 @@ curl -s -X POST http://localhost:3000/auth/register \
 ### Register with a specific role
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Admin User",
@@ -61,7 +61,7 @@ curl -s -X POST http://localhost:3000/auth/register \
 ### Register — invalid role
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Bad User",
@@ -82,7 +82,7 @@ curl -s -X POST http://localhost:3000/auth/register \
 ### Register — duplicate email
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "John Doe",
@@ -102,7 +102,7 @@ curl -s -X POST http://localhost:3000/auth/register \
 ### Register — validation errors
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "",
@@ -122,7 +122,7 @@ curl -s -X POST http://localhost:3000/auth/register \
 ### Login
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/login \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "john@example.com",
@@ -140,7 +140,7 @@ curl -s -X POST http://localhost:3000/auth/login \
 ### Login — invalid credentials
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/login \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "john@example.com",
@@ -159,7 +159,7 @@ curl -s -X POST http://localhost:3000/auth/login \
 ### Login — deactivated account
 
 ```bash
-curl -s -X POST http://localhost:3000/auth/login \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "deactivated@example.com",
@@ -182,7 +182,7 @@ curl -s -X POST http://localhost:3000/auth/login \
 ### Create a transaction (admin only)
 
 ```bash
-curl -s -X POST http://localhost:3000/transactions \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/transactions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <TOKEN>" \
   -d '{
@@ -213,7 +213,7 @@ curl -s -X POST http://localhost:3000/transactions \
 ### Create a transaction (non-admin — forbidden)
 
 ```bash
-curl -s -X POST http://localhost:3000/transactions \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/transactions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <VIEWER_TOKEN>" \
   -d '{
@@ -236,42 +236,42 @@ curl -s -X POST http://localhost:3000/transactions \
 ### List all transactions (all roles)
 
 ```bash
-curl -s http://localhost:3000/transactions \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/transactions \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
 ### List transactions — filter by type
 
 ```bash
-curl -s "http://localhost:3000/transactions?type=expense" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/transactions?type=expense" \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
 ### List transactions — filter by category
 
 ```bash
-curl -s "http://localhost:3000/transactions?category=Salary" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/transactions?category=Salary" \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
 ### List transactions — filter by date range
 
 ```bash
-curl -s "http://localhost:3000/transactions?startDate=2026-01-01&endDate=2026-01-31" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/transactions?startDate=2026-01-01&endDate=2026-01-31" \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
 ### List transactions — combine filters
 
 ```bash
-curl -s "http://localhost:3000/transactions?type=expense&startDate=2026-01-01&endDate=2026-12-31&category=Rent" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/transactions?type=expense&startDate=2026-01-01&endDate=2026-12-31&category=Rent" \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
 ### Update a transaction (admin only)
 
 ```bash
-curl -s -X PUT http://localhost:3000/transactions/<TRANSACTION_ID> \
+curl -s -X PUT https://finance-dashboard-backend-sigv.onrender.com/transactions/<TRANSACTION_ID> \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <TOKEN>" \
   -d '{
@@ -298,7 +298,7 @@ curl -s -X PUT http://localhost:3000/transactions/<TRANSACTION_ID> \
 ### Delete a transaction (admin only)
 
 ```bash
-curl -s -X DELETE http://localhost:3000/transactions/<TRANSACTION_ID> \
+curl -s -X DELETE https://finance-dashboard-backend-sigv.onrender.com/transactions/<TRANSACTION_ID> \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
@@ -312,7 +312,7 @@ curl -s -X DELETE http://localhost:3000/transactions/<TRANSACTION_ID> \
 ### Transaction not found
 
 ```bash
-curl -s -X DELETE http://localhost:3000/transactions/000000000000000000000000 \
+curl -s -X DELETE https://finance-dashboard-backend-sigv.onrender.com/transactions/000000000000000000000000 \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
@@ -327,7 +327,7 @@ curl -s -X DELETE http://localhost:3000/transactions/000000000000000000000000 \
 ### No auth token
 
 ```bash
-curl -s http://localhost:3000/transactions
+curl -s https://finance-dashboard-backend-sigv.onrender.com/transactions
 ```
 
 **Response (401):**
@@ -345,7 +345,7 @@ curl -s http://localhost:3000/transactions
 ### List all users
 
 ```bash
-curl -s http://localhost:3000/users \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/users \
   -H "Authorization: Bearer <ADMIN_TOKEN>"
 ```
 
@@ -366,21 +366,21 @@ curl -s http://localhost:3000/users \
 ### Search users by name
 
 ```bash
-curl -s "http://localhost:3000/users?name=john" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/users?name=john" \
   -H "Authorization: Bearer <ADMIN_TOKEN>"
 ```
 
 ### Search users by email
 
 ```bash
-curl -s "http://localhost:3000/users?email=example.com" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/users?email=example.com" \
   -H "Authorization: Bearer <ADMIN_TOKEN>"
 ```
 
 ### Search users by name or email
 
 ```bash
-curl -s "http://localhost:3000/users?name=john&email=admin@example.com" \
+curl -s "https://finance-dashboard-backend-sigv.onrender.com/users?name=john&email=admin@example.com" \
   -H "Authorization: Bearer <ADMIN_TOKEN>"
 ```
 
@@ -389,7 +389,7 @@ curl -s "http://localhost:3000/users?name=john&email=admin@example.com" \
 ### List users (non-admin — forbidden)
 
 ```bash
-curl -s http://localhost:3000/users \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/users \
   -H "Authorization: Bearer <VIEWER_TOKEN>"
 ```
 
@@ -404,7 +404,7 @@ curl -s http://localhost:3000/users \
 ### Change user role
 
 ```bash
-curl -s -X PATCH http://localhost:3000/users/<USER_ID>/role \
+curl -s -X PATCH https://finance-dashboard-backend-sigv.onrender.com/users/<USER_ID>/role \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <ADMIN_TOKEN>" \
   -d '{
@@ -427,7 +427,7 @@ curl -s -X PATCH http://localhost:3000/users/<USER_ID>/role \
 ### Change role — invalid role value
 
 ```bash
-curl -s -X PATCH http://localhost:3000/users/<USER_ID>/role \
+curl -s -X PATCH https://finance-dashboard-backend-sigv.onrender.com/users/<USER_ID>/role \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <ADMIN_TOKEN>" \
   -d '{
@@ -446,7 +446,7 @@ curl -s -X PATCH http://localhost:3000/users/<USER_ID>/role \
 ### Deactivate a user
 
 ```bash
-curl -s -X PATCH http://localhost:3000/users/<USER_ID>/status \
+curl -s -X PATCH https://finance-dashboard-backend-sigv.onrender.com/users/<USER_ID>/status \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <ADMIN_TOKEN>" \
   -d '{
@@ -469,7 +469,7 @@ curl -s -X PATCH http://localhost:3000/users/<USER_ID>/status \
 ### Reactivate a user
 
 ```bash
-curl -s -X PATCH http://localhost:3000/users/<USER_ID>/status \
+curl -s -X PATCH https://finance-dashboard-backend-sigv.onrender.com/users/<USER_ID>/status \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <ADMIN_TOKEN>" \
   -d '{
@@ -484,7 +484,7 @@ curl -s -X PATCH http://localhost:3000/users/<USER_ID>/status \
 ### Summary — total income, expenses, net balance (all roles)
 
 ```bash
-curl -s http://localhost:3000/dashboard/summary \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/summary \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
@@ -500,7 +500,7 @@ curl -s http://localhost:3000/dashboard/summary \
 ### Recent — last 10 transactions (all roles)
 
 ```bash
-curl -s http://localhost:3000/dashboard/recent \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/recent \
   -H "Authorization: Bearer <TOKEN>"
 ```
 
@@ -522,7 +522,7 @@ curl -s http://localhost:3000/dashboard/recent \
 ### By category — grouped totals (analyst + admin)
 
 ```bash
-curl -s http://localhost:3000/dashboard/by-category \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/by-category \
   -H "Authorization: Bearer <ANALYST_TOKEN>"
 ```
 
@@ -559,7 +559,7 @@ curl -s http://localhost:3000/dashboard/by-category \
 ### By category (viewer — forbidden)
 
 ```bash
-curl -s http://localhost:3000/dashboard/by-category \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/by-category \
   -H "Authorization: Bearer <VIEWER_TOKEN>"
 ```
 
@@ -574,7 +574,7 @@ curl -s http://localhost:3000/dashboard/by-category \
 ### Trends — monthly breakdown (analyst + admin)
 
 ```bash
-curl -s http://localhost:3000/dashboard/trends \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/trends \
   -H "Authorization: Bearer <ANALYST_TOKEN>"
 ```
 
@@ -603,7 +603,7 @@ curl -s http://localhost:3000/dashboard/trends \
 ### Trends (viewer — forbidden)
 
 ```bash
-curl -s http://localhost:3000/dashboard/trends \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/trends \
   -H "Authorization: Bearer <VIEWER_TOKEN>"
 ```
 
@@ -623,28 +623,28 @@ Run this to set up test users and get tokens in one go:
 
 ```bash
 # Register three users with roles
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name":"Admin User","email":"admin@test.com","password":"admin123","role":"admin"}'
 
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name":"Analyst User","email":"analyst@test.com","password":"analyst123","role":"analyst"}'
 
-curl -s -X POST http://localhost:3000/auth/register \
+curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/register \
   -H "Content-Type: application/json" \
   -d '{"name":"Viewer User","email":"viewer@test.com","password":"viewer123"}'
 
 # Login and save tokens
-ADMIN_TOKEN=$(curl -s -X POST http://localhost:3000/auth/login \
+ADMIN_TOKEN=$(curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"admin@test.com","password":"admin123"}' | python3 -c "import sys,json; print(json.load(sys.stdin)['accessToken'])")
 
-ANALYST_TOKEN=$(curl -s -X POST http://localhost:3000/auth/login \
+ANALYST_TOKEN=$(curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"analyst@test.com","password":"analyst123"}' | python3 -c "import sys,json; print(json.load(sys.stdin)['accessToken'])")
 
-VIEWER_TOKEN=$(curl -s -X POST http://localhost:3000/auth/login \
+VIEWER_TOKEN=$(curl -s -X POST https://finance-dashboard-backend-sigv.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"viewer@test.com","password":"viewer123"}' | python3 -c "import sys,json; print(json.load(sys.stdin)['accessToken'])")
 
@@ -656,6 +656,6 @@ echo "VIEWER_TOKEN=$VIEWER_TOKEN"
 Then use the tokens with any curl command above:
 
 ```bash
-curl -s http://localhost:3000/dashboard/summary \
+curl -s https://finance-dashboard-backend-sigv.onrender.com/dashboard/summary \
   -H "Authorization: Bearer $ADMIN_TOKEN"
 ```

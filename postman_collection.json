@@ -16,16 +16,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/users",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/users",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "users"
               ]
@@ -44,7 +45,7 @@
               },
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "body": {
@@ -57,12 +58,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/users/69cd78b0f3a5e3fe98c2aa67/role",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/users/69cd78b0f3a5e3fe98c2aa67/role",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "users",
                 "69cd78b0f3a5e3fe98c2aa67",
@@ -83,7 +85,7 @@
               },
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "body": {
@@ -96,12 +98,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/users/69cd78b0f3a5e3fe98c2aa67/status",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/users/69cd78b0f3a5e3fe98c2aa67/status",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "users",
                 "69cd78b0f3a5e3fe98c2aa67",
@@ -123,16 +126,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions?type=income&startDate=2026-01-01&endDate=2026-12-31&category=Salary",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions?type=income&startDate=2026-01-01&endDate=2026-12-31&category=Salary",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ],
@@ -169,7 +173,7 @@
               },
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "body": {
@@ -182,12 +186,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/transactions/69cd7906f3a5e3fe98c2aa6c",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions/69cd7906f3a5e3fe98c2aa6c",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions",
                 "69cd7906f3a5e3fe98c2aa6c"
@@ -207,12 +212,13 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions/<TRANSACTION_ID>",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions/<TRANSACTION_ID>",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions",
                 "<TRANSACTION_ID>"
@@ -231,16 +237,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MDczNDU5LCJleHAiOjE3NzUwNzcwNTl9.3SN6mtSctYrbX1x8ktMFf59Cxt81WKLcS5KJGcnl168"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ]
@@ -255,16 +262,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions?type=income",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions?type=income",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ],
@@ -285,16 +293,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions?category=Salary",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions?category=Salary",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ],
@@ -315,16 +324,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/transactions?startDate=2026-01-01&endDate=2026-04-31",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions?startDate=2026-01-01&endDate=2026-04-31",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ],
@@ -356,7 +366,7 @@
               },
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MDczNDU5LCJleHAiOjE3NzUwNzcwNTl9.3SN6mtSctYrbX1x8ktMFf59Cxt81WKLcS5KJGcnl168"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "body": {
@@ -369,12 +379,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/transactions",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/transactions",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "transactions"
               ]
@@ -394,16 +405,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/dashboard/summary",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/dashboard/summary",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "dashboard",
                 "summary"
@@ -419,16 +431,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/dashboard/by-category",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/dashboard/by-category",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "dashboard",
                 "by-category"
@@ -444,16 +457,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/dashboard/recent",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/dashboard/recent",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "dashboard",
                 "recent"
@@ -469,16 +483,17 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWNkNzhiMGYzYTVlM2ZlOThjMmFhNjciLCJlbWFpbCI6InNha3NoYW0yNTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNzc1MTUzNzI2LCJleHAiOjE3NzUxNTczMjZ9.xxc0uL2AL7ttzlio8eJo2MXEdrU-F13Mi7XW3sfgepA"
+                "value": "Bearer <TOKEN>"
               }
             ],
             "url": {
-              "raw": "http://localhost:3000/dashboard/trends",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/dashboard/trends",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "dashboard",
                 "trends"
@@ -512,12 +527,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/auth/register",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/auth/register",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "auth",
                 "register"
@@ -549,12 +565,13 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3000/auth/login",
-              "protocol": "http",
+              "raw": "https://finance-dashboard-backend-sigv.onrender.com/auth/login",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "finance-dashboard-backend-sigv",
+                "onrender",
+                "com"
               ],
-              "port": "3000",
               "path": [
                 "auth",
                 "login"
